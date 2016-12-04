@@ -7,7 +7,7 @@ module.exports = {
     devtool: debug
         ? "inline-sourcemap"
         : null,
-    entry: "./js/insta-widget.js",
+    entry: "./insta-widget.js",
     module: {
         loaders: [
             {
@@ -24,7 +24,7 @@ module.exports = {
         ]
     },
     output: {
-        path: __dirname + "/js/",
+        path: __dirname,
         filename: "insta-widget.min.js"
     },
     plugins: debug
