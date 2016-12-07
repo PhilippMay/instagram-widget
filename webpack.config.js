@@ -25,7 +25,7 @@ module.exports = {
     },
     output: {
         path: __dirname,
-        filename: "insta-widget.min.js"
+        filename: "build/insta-widget.min.js"
     },
     plugins: debug
         ? []
