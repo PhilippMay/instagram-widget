@@ -1,7 +1,7 @@
 import React from "react";
 import ReactDom from "react-dom";
-import {Grid, Col, Row} from "react-bootstrap";
 import $ from "jquery";
+import ImageThumbnail from "./img-thumbnail";
 
 let InstagramWidget = React.createClass({
 
@@ -16,27 +16,21 @@ let InstagramWidget = React.createClass({
             url: url,
             dataType: "jsonp",
             success: function(response) {
-                console.log(response);
-
                 self.setState({data: response["data"]})
             }
         })
     },
     renderItems: function(item, i) {
-        return <div style={{
-            display: "inline-block",
-            verticalAlign: "middle"
-        }} key={i}>
-            <img src={item["images"]["low_resolution"]["url"]}/>
-        </div>
+        return <ImageThumbnail key={i} content={item}/>
     },
     render: function() {
 
         return (
             <div style={{
-                maxWidth: 1300,
+                maxWidth: 1000,
                 margin: "auto"
-            }}>{this.state.data.map(this.renderItems)}</div>
+            }}>
+                {this.state.data.map(this.renderItems)}</div>
         )
     }
 });
